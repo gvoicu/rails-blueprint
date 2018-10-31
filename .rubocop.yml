@@ -1,0 +1,38 @@
+# Inherit the RuboCop configuration with the same 
+# code style checking as official Ruby on Rails
+inherit_gem:
+  rubocop-rails_config:
+    - config/rails.yml
+
+Documentation:
+  Enabled: false
+
+# Ignore comments
+Metrics/LineLength:
+  Max: 80
+  IgnoredPatterns: ['\A#']
+
+Style/StringLiterals:
+  Description: "Rule on how to use single and double quotes"
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
+Style/FrozenStringLiteralComment:
+  Description: >-
+                 Add the frozen_string_literal comment to the top of files
+                 to help transition from Ruby 2.3.0 to Ruby 3.0.
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.5
+  # These inclusions / exclusions should be made app specific
+  Include:
+    - app/**/*
+  Exclude:
+    - app/javascript/**/*
+    - app/assets/**/*
+    - app/views/**/*
+    - bin/*
+    - db/**/*
