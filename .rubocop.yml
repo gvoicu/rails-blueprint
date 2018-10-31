@@ -5,15 +5,19 @@ inherit_gem:
     - config/rails.yml
 
 Documentation:
+  Description: >-
+                 Since the blueprint is multipurpose, we will disable by default
+                 having documentation for any method
   Enabled: false
 
 # Ignore comments
 Metrics/LineLength:
+  Description: 'Ignore comments'
   Max: 80
   IgnoredPatterns: ['\A#']
 
 Style/StringLiterals:
-  Description: "Rule on how to use single and double quotes"
+  Description: 'Rule on how to use single and double quotes'
   EnforcedStyle: single_quotes
   SupportedStyles:
     - single_quotes
